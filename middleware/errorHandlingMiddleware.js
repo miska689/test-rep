@@ -5,6 +5,7 @@ const errorHandling = (err, req, res, next) => {
 
     if (err instanceof HttpError) {
         return res.status(err.status).json({
+            status: err.status,
             message: err.message,
         });
     }

@@ -21,6 +21,8 @@ router.delete('/service/:id', authMiddleware,ServiceController.deleteService)
 router.post('/register', userController.register)
 router.post('/login', userController.login)
 router.get('/auth', authMiddleware, userController.auth)
-router.get("/delete-user/:id", authMiddleware, userController.deleteUser)
+router.delete("/delete-user/:id", authMiddleware, userController.deleteUser)
+router.get('/get-users', authMiddleware, userController.getUsers)
+router.get('/get-user/:id', authMiddleware, userController.getUser)
 
 export {router}

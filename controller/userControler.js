@@ -75,12 +75,50 @@ class UserController {
         })
     }
 
-    async deleteUser() {
+    async deleteUser(req, res, next) {
         const {id} = req.params
 
-        if (!id){
+        const {adminPassword} = req.body
 
+        if (adminPassword !== process.env.ADMIN_PASS) {
+            return next(HttpError.badRequest("HTTP_BAD_REQUEST_ADMIN_PASSWORD_"))
         }
+
+        if (!id){
+            return next(HttpError.badRequest("ID_IS_REQUIRED"))
+        }
+
+        const user = await User.destroy({
+            where: {id}
+        })
+
+        return res.json({
+            user
+        })
+    }
+
+    async getUsers(req, res, next) {
+        const users = await User.findAll()
+
+        return res.json({
+            users
+        })
+    }
+
+    async getUser(req, res, next) {
+        const {id} = req.params
+
+        if (!id) {
+            return next(HttpError.badRequest('ID_IS_REQUIRED'))
+        }
+
+        const user = await User.findOne({
+            where: {id}
+        })
+
+        return res.json({
+            user
+        })
     }
 }
 
