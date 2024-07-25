@@ -1,7 +1,8 @@
 import Appointment from '../models/appointment.js';
 import {HttpError} from "../errors/index.js";
 import service from "../models/service.js";
-
+import {bot} from "../tel-bot-service/index.js"
+import User from "../models/user.js";
 
 class AppointmentsController {
     async getOne(req, res, next) {
@@ -45,6 +46,20 @@ class AppointmentsController {
             date,
             serviceId
         })
+
+        const users = await User.findAll()
+
+        for await (let user of users){
+            await bot.sendMessage(user?.dataValues?.telegram_chat_id,
+                "🎉 Înregistrare reușită! 🎉\n" +
+                "\n" +
+                "📋 Detalii înregistrare:\n" +
+                "\n" +
+                `📧 Email: ${appointment.email}\n` +
+                `📱 Număr de telefon: ${appointment.phone}\n` +
+                `📅 Data înregistrării: ${appointment.date}\n`
+            )
+        }
 
         return res.json({
             appointment

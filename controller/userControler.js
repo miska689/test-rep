@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import User from '../models/user.js';
 import {HttpError} from "../errors/index.js";
-import req from "express/lib/request.js";
 
 const generateToken = (user) => {
     return jwt.sign(
@@ -14,13 +13,13 @@ const generateToken = (user) => {
 
 class UserController {
     async register(req, res, next) {
-        const {username, password, adminPassword} = req.body;
+        const {telegram_user_id, telegram_chat_id, username, adminPassword} = req.body;
 
         if (adminPassword !== process.env.ADMIN_PASS) {
             return next(HttpError.badRequest("HTTP_BAD_REQUEST_ADMIN_PASSWORD_"))
         }
 
-        if (!username || !password) {
+        if (!username || !telegram_user_id || !telegram_chat_id) {
             return next(HttpError.badRequest('HTTP_BAD_REQUEST_ERROR'));
         }
 
@@ -32,11 +31,10 @@ class UserController {
             return next(HttpError.badRequest('HTTP_USER_IS_EXIST_ERROR'))
         }
 
-        const hashPassword = await bcrypt.hash(password, 4)
-
         const user = await User.create({
             username,
-            password: hashPassword
+            telegram_user_id,
+            telegram_chat_id
         })
 
 
@@ -46,9 +44,9 @@ class UserController {
     }
 
     async login(req, res, next) {
-        const {username, password} = req.body;
+        const {telegram_user_id, username} = req.body;
 
-        if (!username || !password) {
+        if (telegram_user_id) {
             return next(HttpError.badRequest('HTTP_BAD_REQUEST_ERROR'));
         }
 
@@ -56,10 +54,10 @@ class UserController {
             where: {username}
         })
 
-        const comparePass = await bcrypt.compareSync(password, user.password)
+        const compareUserId = telegram_user_id === user.telegram_user_id
 
-        if (!comparePass || !user) {
-            return next(HttpError.badRequest('WRONG_USER_PASSWORD'));
+        if (!compareUserId || !user) {
+            return next(HttpError.badRequest('WRONG_USER'));
         }
 
         const token = generateToken(user);

@@ -30,6 +30,12 @@ const startBot = (callback) => {
 
     bot.on('callback_query',  initQueryDataEffect(bot, langConf))
 
+    bot.onText(/\/user/, async msg => {
+        console.log(msg.chat.id)
+        console.log(msg.from.id)
+
+    })
+
     callback()
 }
 
