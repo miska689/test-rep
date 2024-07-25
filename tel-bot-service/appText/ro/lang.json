@@ -1,0 +1,14 @@
+{
+   "lang": {
+     "commands": {
+       "info": "Salut! Bine ai venit la botul oficial al companiei PSITOGEG_SRL!\n\n\uD83C\uDF1F Ce poți face aici?\n\n\uD83D\uDD39 /reg – Înregistrează-te rapid și simplu pentru a avea acces la toate funcționalitățile noastre.\n\uD83D\uDD39 /log – Loghează-te pentru a accesa contul tău și a gestiona serviciile noastre.\n\nDacă ai nevoie de ajutor sau informații suplimentare, nu ezita să ne contactezi!\n\n🚨 Acest bot a fost creat pentru compania PSITOGEG_SRL și numai angajații au voie să îl folosească. 📢 Acest bot dă notificări și înainte de asta ar trebui ca utilizatorul să se înregistreze sau să se logheze.",
+       "reg": "<b>\uD83D\uDCDD Informații despre înregistrare</b>\n\nPentru a te <b>înregistra</b>, ai nevoie de următoarele informații:\n\n1. \uD83D\uDC64 <b>Nume de utilizator</b>: Alege un username unic.\n2. \uD83D\uDD12 <b>Parola utilizator</b>: Creează o parolă pentru contul tău.\n3. \uD83D\uDEE0\uFE0F <b>Parola Admin</b>: Introdu parola admin care este <b>unică</b> pentru fiecare utilizator.\n\nAsigură-te că introduci toate informațiile corecte pentru a finaliza înregistrarea. Dacă ai întrebări, nu ezita să ne contactezi! \uD83D\uDCE9\n",
+       "log": "<b>\uD83D\uDD11 Informații despre logare</b>\n\nPentru a te <b>loga</b>, ai nevoie de următoarele informații:\n\n1. \uD83D\uDC64 <b>Nume de utilizator</b>: Introdu username-ul tău.\n2. \uD83D\uDD12 <b>Parola</b>: Introdu parola contului tău.\n\nAsigură-te că introduci informațiile corecte pentru a accesa contul tău. Dacă ai întrebări, nu ezita să ne contactezi! \uD83D\uDCE9\n"
+     },
+     "buttons": {
+       "reg_button": "Înscrie-te aici",
+       "log_button": "Loghează-te aici"
+     },
+     "changeLanguage": "Limba a fost schimbata cu succes! \uD83C\uDDF7\uD83C\uDDF4"
+   }
+}

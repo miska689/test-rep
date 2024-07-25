@@ -6,6 +6,7 @@ import {sequelizeClient} from './sequelize.js'
 import models from './models/index.js'
 import {errorHandling} from './middleware/errorHandlingMiddleware.js'
 import {notFoundHandling} from "./middleware/notFoundHandling.js";
+import {startBot} from "./tel-bot-service/index.js";
 
 dotenv.config({path: `.${process.env.NODE_ENV}.env`})
 
@@ -24,6 +25,9 @@ const start = async () => {
         const connection = await sequelizeClient();
 
         app.listen(PORT, () => {
+            startBot(() => {
+                console.log(`Bot is ready to use`);
+            })
             console.log(`Listening on port ${PORT}`)
         })
     } catch (e) {

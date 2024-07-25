@@ -1,0 +1,14 @@
+{
+   "lang": {
+     "commands": {
+       "info": "Hello! Welcome to the official bot of PSITOGEG_SRL!\n\n\uD83C\uDF1F What can you do here?\n\n\uD83D\uDD39 /reg – Register quickly and easily to access all our features.\n\uD83D\uDD39 /log – Log in to access your account and manage our services.\n\nIf you need help or additional information, don't hesitate to contact us!\n\n\uD83D\uDEA8 This bot was created for the company PSITOGEG_SRL and only employees are allowed to use it. \uD83D\uDCE2 This bot sends notifications and the user should register or log in before that.\n",
+       "reg": "<b>\uD83D\uDCDD Registration Information</b>\n\nTo <b>register</b>, you need the following information:\n\n1. \uD83D\uDC64 <b>Username</b>: Choose a unique username.\n2. \uD83D\uDD12 <b>User Password</b>: Create a password for your account.\n3. \uD83D\uDEE0\uFE0F <b>Admin Password</b>: Enter the admin password, which is <b>unique</b> for each user.\n\nMake sure to enter all the correct information to complete the registration. If you have any questions, feel free to contact us! \uD83D\uDCE9\n",
+       "log": "<b>\uD83D\uDD11 Login Information</b>\n\nTo <b>log in</b>, you need the following information:\n\n1. \uD83D\uDC64 <b>Username</b>: Enter your username.\n2. \uD83D\uDD12 <b>Password</b>: Enter your account password.\n\nMake sure to enter the correct information to access your account. If you have any questions, feel free to contact us! \uD83D\uDCE9\n"
+     },
+
+     "buttons": {
+       "reg_button": "Register here",
+       "log_button": "Log in here"
+     }
+   }
+}
