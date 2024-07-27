@@ -46,7 +46,7 @@ class UserController {
     async login(req, res, next) {
         const {telegram_user_id, username} = req.body;
 
-        if (telegram_user_id) {
+        if (!telegram_user_id) {
             return next(HttpError.badRequest('HTTP_BAD_REQUEST_ERROR'));
         }
 

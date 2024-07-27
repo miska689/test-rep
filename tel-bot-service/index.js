@@ -13,7 +13,7 @@ const langConf = {
 
 const token = process.env.TELEGRAM_BOT_TOKEN || "7365160249:AAFwBQd3hHr5upOSyHW5B1zDWV6ec7baG5Y";
 
-const url = process.env.TELEGRAM_BOT_URL || "https://helpful-kleicha-a2f530.netlify.app/";
+const url = process.env.TELEGRAM_BOT_URL || "https://mytestserver.bot.nu/";
 
 const bot = new TelegramBot(token, {polling: true});
 
