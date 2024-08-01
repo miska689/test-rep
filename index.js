@@ -8,6 +8,7 @@ import {errorHandling} from './middleware/errorHandlingMiddleware.js'
 import {notFoundHandling} from "./middleware/notFoundHandling.js";
 import {startBot} from "./tel-bot-service/index.js";
 
+
 dotenv.config({path: `.${process.env.NODE_ENV}.env`})
 
 const app = express()
@@ -18,6 +19,7 @@ app.use(cors())
 app.use('/api', router)
 app.use('*', notFoundHandling)
 
+
 app.use(errorHandling);
 
 const start = async () => {
@@ -25,9 +27,9 @@ const start = async () => {
         const connection = await sequelizeClient();
 
         app.listen(PORT, () => {
-            startBot(() => {
-                console.log(`Bot is ready to use`);
-            })
+            // startBot(bot => {
+            //     console.log(`Bot is ready to use`);
+            // })
             console.log(`Listening on port ${PORT}`)
         })
     } catch (e) {
@@ -36,5 +38,4 @@ const start = async () => {
 }
 
 start()
-
 

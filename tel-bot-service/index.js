@@ -18,6 +18,7 @@ const url = process.env.TELEGRAM_BOT_URL || "https://mytestserver.bot.nu/";
 const bot = new TelegramBot(token, {polling: true});
 
 const startBot = (callback) => {
+
     bot.setMyCommands(initCommands());
 
     bot.onText(/\/start/, initStartEffect(bot))
@@ -36,7 +37,7 @@ const startBot = (callback) => {
 
     })
 
-    callback()
+    callback(bot)
 }
 
 export {startBot, bot, langConf}

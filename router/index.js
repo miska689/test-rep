@@ -6,6 +6,7 @@ import AppController from '../controller/appointmentsController.js'
 
 const router = Router()
 
+
 router.get('/appointment', authMiddleware, AppController.getAll)
 router.get('/appointment/:id', authMiddleware, AppController.getOne)
 router.post('/appointment', AppController.create)
