@@ -1,30 +1,32 @@
+const url = "http://localhost:6000/"
+
 export default [
     {
         route: "/appointment",
-        target: "https://mytestserver.bot.nu/api/appointment"
+        target: url + "api/appointment"
     },
     {
         route: "/service",
-        target: "https://mytestserver.bot.nu/api/service"
+        target: url + "api/service"
     },
     {
         route: "/login",
-        target: "https://mytestserver.bot.nu/api/login"
+        target: url + "api/login"
     },
     {
         route: "/register",
-        target: "https://mytestserver.bot.nu/api/register"
+        target: url + "api/register"
     },
     {
         route: "/auth",
-        target: "https://mytestserver.bot.nu/api/auth"
+        target: url + "api/auth"
     },
     {
         route: "/delete-user",
-        target: "https://mytestserver.bot.nu/api/delete-user"
+        target: url + "api/delete-user"
     },
     {
         route: "/get-user",
-        target: "https://mytestserver.bot.nu/api/get-user"
+        target: url + "api/get-user"
     }
 ]
