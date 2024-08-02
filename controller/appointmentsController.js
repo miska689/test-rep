@@ -48,17 +48,20 @@ class AppointmentsController {
         })
 
         const users = await User.findAll()
-
-        for await (let user of users){
-            await bot.sendMessage(user?.dataValues?.telegram_chat_id,
-                "🎉 Înregistrare reușită! 🎉\n" +
-                "\n" +
-                "📋 Detalii înregistrare:\n" +
-                "\n" +
-                `📧 Email: ${appointment.email}\n` +
-                `📱 Număr de telefon: ${appointment.phone}\n` +
-                `📅 Data înregistrării: ${appointment.date}\n`
-            )
+        try {
+            for await (let user of users) {
+                await bot.sendMessage(user?.dataValues?.telegram_chat_id,
+                    "🎉 Înregistrare reușită! 🎉\n" +
+                    "\n" +
+                    "📋 Detalii înregistrare:\n" +
+                    "\n" +
+                    `📧 Email: ${appointment.email}\n` +
+                    `📱 Număr de telefon: ${appointment.phone}\n` +
+                    `📅 Data înregistrării: ${appointment.date}\n`
+                )
+            }
+        } catch (e) {
+            console.log("Nu sa putut trimite mesajul!");
         }
 
         return res.json({
