@@ -63,7 +63,7 @@ class UserController {
 
         return res.json({ token })
     }
-
+//
     async auth(req, res, next) {
         const token = generateToken(req.user)
 
