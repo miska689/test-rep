@@ -40,12 +40,7 @@ class UserController {
 
         const token = generateToken(user);
 
-        return res.json({ token }).headers({
-
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            "Access-Control-Allow-Methods": "POST, OPTIONS"
-        })
+        return res.json({ token })
     }
     async login(req, res, next) {
         const {telegram_user_id, username} = req.body;
@@ -66,11 +61,7 @@ class UserController {
 
         const token = generateToken(user);
 
-        return res.json({ token }).headers({
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            "Access-Control-Allow-Methods": "POST, OPTIONS"
-        });
+        return res.json({ token })
     }
 
     async auth(req, res, next) {
