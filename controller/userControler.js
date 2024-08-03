@@ -40,7 +40,11 @@ class UserController {
 
         const token = generateToken(user);
 
-        return res.json({ token })
+        return res.json({
+            status: 200,
+            message: "Succes",
+            isOk: true
+        })
     }
     async login(req, res, next) {
         const {telegram_user_id, username} = req.body;
@@ -59,16 +63,10 @@ class UserController {
             return next(HttpError.badRequest('WRONG_USER'));
         }
 
-        const token = generateToken(user);
-
-        return res.json({ token })
-    }
-//
-    async auth(req, res, next) {
-        const token = generateToken(req.user)
-
         return res.json({
-            token
+            status: 200,
+            message: "Succes",
+            isOk: true
         })
     }
 
