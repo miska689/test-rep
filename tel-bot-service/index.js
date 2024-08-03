@@ -4,14 +4,16 @@ import { initQueryDataEffect } from './effects/queryDataEffect.js';
 import { initStartEffect } from './effects/startEffect.js';
 import { initRegEffect } from './effects/regEffect.js';
 import { initLogEffect } from './effects/logEffect.js';
+import dotenv from 'dotenv';
 
+dotenv.config({path: `.${process.env.NODE_ENV}.env`})
 
 const langConf = {
     langData: "",
     lang: "",
 }
 
-const token = process.env.TELEGRAM_BOT_TOKEN || "7365160249:AAFwBQd3hHr5upOSyHW5B1zDWV6ec7baG5Y";
+const token = process.env.TELEGRAM_TOKEN;
 
 const url = process.env.TELEGRAM_BOT_URL || "https://mytestserver.bot.nu/";
 

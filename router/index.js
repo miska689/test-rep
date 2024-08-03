@@ -4,30 +4,29 @@ import {authMiddleware} from "../middleware/authMiddleware.js";
 import ServiceController from '../controller/serviceController.js'
 import AppController from '../controller/appointmentsController.js'
 import {notFoundHandling} from "../middleware/notFoundHandling.js";
+import {telegramAuthMiddleware} from "../middleware/telegramMiddlewareAuth.js";
 
 const router = Router()
 
-router.get('/appointment', authMiddleware, AppController.getAll)
-router.get('/appointment/:id', authMiddleware, AppController.getOne)
+router.get('/appointment', telegramAuthMiddleware, AppController.getAll)
+router.get('/appointment/:id', telegramAuthMiddleware, AppController.getOne)
 router.post('/appointment', AppController.create)
-router.put("/appointment/:id",authMiddleware, AppController.update)
-router.delete('/appointment/:id', authMiddleware, AppController.delete)
+router.put("/appointment/:id",telegramAuthMiddleware, AppController.update)
+router.delete('/appointment/:id', telegramAuthMiddleware, AppController.delete)
 
-router.get('/service', ServiceController.list)
+router.get('/service', telegramAuthMiddleware, ServiceController.list)
 router.get('/service/:id', ServiceController.getOne)
-router.post('/service', authMiddleware ,ServiceController.createService)
-router.put('/service/:id', authMiddleware, ServiceController.updateService)
-router.delete('/service/:id', authMiddleware,ServiceController.deleteService)
+router.post('/service', telegramAuthMiddleware ,ServiceController.createService)
+router.put('/service/:id', telegramAuthMiddleware, ServiceController.updateService)
+router.delete('/service/:id', telegramAuthMiddleware,ServiceController.deleteService)
 
 router.get('/register', notFoundHandling)
-router.post('/register', userController.register)
+router.post('/register',telegramAuthMiddleware, userController.register)
 router.get('/login', notFoundHandling)
-router.post('/login', userController.login)
+router.post('/login', telegramAuthMiddleware, userController.login)
 
-
-router.get('/auth', authMiddleware, userController.auth)
-router.delete("/delete-user/:id", authMiddleware, userController.deleteUser)
-router.get('/get-users', authMiddleware, userController.getUsers)
-router.get('/get-user/:id', authMiddleware, userController.getUser)
+router.delete("/delete-user/:id", telegramAuthMiddleware, userController.deleteUser)
+router.get('/get-users', telegramAuthMiddleware, userController.getUsers)
+router.get('/get-user/:id', telegramAuthMiddleware, userController.getUser)
 
 export {router}

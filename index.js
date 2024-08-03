@@ -11,6 +11,7 @@ import morgan from "morgan"
 import {rateLimitAndTimeout} from "./middleware/timeOutMiddleware.js"
 import routs from './router/routes.js'
 import { createProxyMiddleware } from "http-proxy-middleware"
+import {telegramAuthMiddleware} from "./middleware/telegramMiddlewareAuth.js"
 
 dotenv.config({path: `.${process.env.NODE_ENV}.env`})
 
