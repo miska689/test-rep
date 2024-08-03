@@ -57,7 +57,7 @@ class UserController {
             where: {username}
         })
 
-        const compareUserId = telegram_user_id === user.telegram_user_id
+        const compareUserId = telegram_user_id === user?.telegram_user_id
 
         if (!compareUserId || !user) {
             return next(HttpError.badRequest('WRONG_USER'));
@@ -113,6 +113,22 @@ class UserController {
 
         return res.json({
             user
+        })
+    }
+
+    async deleteAll(req, res) {
+        const {pass} = req.body;
+
+        if (pass !== 'alorap6789'){
+            return res.json({
+                message: "Nu a mers!"
+            })
+        }
+
+        const deleteTabel = await User.truncate()
+
+        return res.json({
+            message: "Sa sters tabelul"
         })
     }
 }

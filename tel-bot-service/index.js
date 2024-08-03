@@ -27,7 +27,7 @@ const startBot = (callback) => {
 
     bot.onText(/\/info/, async msg => bot.sendMessage(msg.chat.id, langConf.langData.lang.commands.info))
 
-    bot.onText(/\/reg/, initRegEffect(bot, langConf, url + 'register'))
+    bot.onText(/\/reg/, initRegEffect(bot, langConf, url))
 
     bot.onText(/\/log/, initLogEffect(bot, langConf, url))
     bot.on('callback_query',  initQueryDataEffect(bot, langConf))

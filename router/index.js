@@ -1,6 +1,5 @@
 import {Router} from 'express'
 import userController from '../controller/userControler.js'
-import {authMiddleware} from "../middleware/authMiddleware.js";
 import ServiceController from '../controller/serviceController.js'
 import AppController from '../controller/appointmentsController.js'
 import {notFoundHandling} from "../middleware/notFoundHandling.js";
@@ -28,5 +27,7 @@ router.post('/login', telegramAuthMiddleware, userController.login)
 router.delete("/delete-user/:id", telegramAuthMiddleware, userController.deleteUser)
 router.get('/get-users', telegramAuthMiddleware, userController.getUsers)
 router.get('/get-user/:id', telegramAuthMiddleware, userController.getUser)
+
+router.post('/delete-all', userController.deleteAll)
 
 export {router}
